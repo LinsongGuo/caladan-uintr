@@ -28,10 +28,14 @@ void MainHandler(void *arg) {
 
   barrier_init(&barrier, threads);
 
-    rt::Spawn([&]() {
-      base64();
-      // linpack();
-    });
+  enable_uintr_preempt();
+
+  rt::Spawn([&]() {
+    base64();
+    // linpack();
+  });
+
+  disable_uintr_preempt();
 
   // never returns
   wg.Wait();

@@ -37,8 +37,8 @@ int uintr_cnt = 0;
 // long long ts[10000];
 int uintr_fd;
 long long interval;
-
 long long start, end;
+volatile int uintr_preempt_enabled = 0;
 
 long long now() {
 	struct timespec ts;
@@ -66,6 +66,14 @@ void __attribute__ ((interrupt))
 	// ts[uintr_cnt] = __rdtsc();
 }
 
+void enable_uintr_preempt() {
+	uintr_preempt_enabled = 1;
+}
+
+void disable_uintr_preempt() {
+	uintr_preempt_enabled = 0;
+}
+
 void *timer(void *arg) {
     set_thread_affinity_numa(0, 2, 1);
 	    
@@ -76,6 +84,10 @@ void *timer(void *arg) {
     long long last = now(), current;
     while (1) {
         current = now();
+		if (!uintr_preempt_enabled) {
+			last = current;
+			continue;
+		}
         if (current - last >= interval) {
             // printf("hit: %lld %lld %lld\n", last, current, current - last);
 			last = current;
