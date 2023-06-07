@@ -17,6 +17,9 @@ uintr_obj = uintr.o
 # must be first
 all: bench 
 
+#bench: $(bench_obj) $(program_obj) $(librt_libs) $(RUNTIME_DEPS)  
+#	$(LDXX) -o $@ $(LDFLAGS) $(librt_libs) $(RUNTIME_LIBS) $(program_obj) $(bench_obj)
+
 bench: $(bench_obj) $(program_obj) $(librt_libs) $(RUNTIME_DEPS)  
 	$(LDXX) -o $@ $(LDFLAGS) $(bench_obj) $(program_obj) $(librt_libs) $(RUNTIME_LIBS)
 

@@ -11,6 +11,7 @@
 // Caladan runtime
 #include "runtime.h"
 #include "thread.h"
+// #include <base/log.h>
 
 // #define __USE_GNU
 #include <pthread.h>
@@ -40,6 +41,8 @@ long long interval;
 long long start, end;
 volatile int uintr_preempt_enabled = 0;
 
+void uintr_summary(void);
+
 long long now() {
 	struct timespec ts;
 	timespec_get(&ts, TIME_UTC);
@@ -62,38 +65,50 @@ void __attribute__ ((interrupt))
      ui_handler(struct __uintr_frame *ui_frame,
 		unsigned long long vector) {
     ++uintr_cnt;
-    rt::Yield();
+	rt::Yield();
 	// ts[uintr_cnt] = __rdtsc();
 }
 
 void enable_uintr_preempt() {
 	uintr_preempt_enabled = 1;
+	start = now();
+	// printf("enable: %d\n", uintr_preempt_enabled);
 }
 
 void disable_uintr_preempt() {
-	uintr_preempt_enabled = 0;
+	end = now();
+	uintr_preempt_enabled = -1;
 }
 
 void *timer(void *arg) {
-    set_thread_affinity_numa(0, 2, 1);
+    set_thread_affinity_numa(0, 2, 0);
 	    
     int uipi_index = uintr_register_sender(uintr_fd, 0);
 	
-	// printf("interval: %lld\n", interval);
+	printf("interval: %lld\n", interval);
 	
     long long last = now(), current;
-    while (1) {
+    while (uintr_preempt_enabled != -1) {
         current = now();
+		// printf("%lld %d\n", current, uintr_preempt_enabled);
+		
 		if (!uintr_preempt_enabled) {
 			last = current;
 			continue;
 		}
+
         if (current - last >= interval) {
             // printf("hit: %lld %lld %lld\n", last, current, current - last);
 			last = current;
-            _senduipi(uipi_index);
+			// printf("check: %d\n", uintr_preempt_enabled);
+		//	if (uintr_preempt_enabled) {
+				// printf("sneduipi\n");
+            	_senduipi(uipi_index);
+		//	}
         }
     } 
+	
+	uintr_summary();
     
 	return NULL;
 }
@@ -118,7 +133,7 @@ void uintr_init()
 		exit(-1);
 
 	// The program starts to run
-	start = now();
+	// start = now();
 
 	// ts[0] = __rdtsc();
 	// printf("%d\n", uintr_cnt);
@@ -132,9 +147,13 @@ void uintr_summary(void)
 		printf("%lld\n",ts[i] - ts[0]); 
 	}*/
 
-    end = now();
+    // end = now();
+	printf("start = %lld, end = %lld, time = %lld\n", start, end, end - start);
     printf("Execution: %.9f\n", 1.*(end - start) / 1e9);
     printf("Number of uintrs: %d\n", uintr_cnt);
+
+    // log_info("Execution: %.9f", 1.*(end - start) / 1e9);
+    // log_info("Number of uintrs: %d", uintr_cnt);
 }
 
 #endif //LIBIUNTR_H

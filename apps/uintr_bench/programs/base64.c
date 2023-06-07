@@ -104,8 +104,9 @@ void encode(int size, const char* str, int* out_size, char** output) {
 }
 
 int base64() {
-    int argc = 1; 
-    char **argv;
+  // printf("base64\n");
+  int argc = 1; 
+  char **argv;
   int TRIES;
 
   int arg = argc > 1 ? argv[1][0] - '0' : 5;

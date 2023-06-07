@@ -5,4 +5,6 @@ int base64();
 
 int linpack();
 
+int sum();
+
 #endif // PROGRAMS_H
