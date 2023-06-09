@@ -53,15 +53,17 @@ void MainHandler(void *arg) {
   		rt::Spawn([&, i]() {
 			// std::cout << "spawn " << bench_name[i] << "--" << std::endl;
  			started += 1;
-    		// printf("%s start: %d\n", bench_name[i].c_str(), started);
+    		printf("%s start: %d\n", bench_name[i].c_str(), started);
 			if (started == bench_num) {
 				enable_uintr_preempt();
 			}
-			
-			//printf("yield start\n");			
-			rt::Yield();
-			//printf("yield ends\n");
-			
+				
+			if (started < bench_num) {
+//				printf("%s yield start\n", bench_name[i].c_str());			
+				rt::Yield();
+//				printf("%s yield ends\n", bench_name[i].c_str());
+			}
+
 			long long t1 = now();
 			bench_func[i]();
 			long long t2 = now();
@@ -70,7 +72,7 @@ void MainHandler(void *arg) {
 			if (finished == bench_num) {
 				disable_uintr_preempt();
 			}
-    		// printf("%s end: %d %.3f\n", bench_name[i].c_str(), finished, 1.*(t2-t1)/1e9);
+    		printf("%s end: %d %.3f\n", bench_name[i].c_str(), finished, 1.*(t2-t1)/1e9);
   		});
   	}
   }
@@ -95,6 +97,8 @@ int main(int argc, char *argv[]) {
   worker_spec = std::string(argv[4]);
  
   uintr_init();
+  
+  // enable_uintr_preempt();
   
   ret = runtime_init(argv[1], MainHandler, NULL);
   if (ret) {
