@@ -17,6 +17,8 @@
 
 #include "defs.h"
 
+/* the flag to indicate if the any uthread is running */
+DEFINE_PERTHREAD(int, __uthread_running);
 /* the current running thread, or NULL if there isn't one */
 DEFINE_PERTHREAD(thread_t *, __self);
 /* a pointer to the top of the per-kthread (TLS) runtime stack */
@@ -86,6 +88,11 @@ static __noreturn void jmp_thread(thread_t *th)
 			cpu_relax();
 	}
 	th->thread_running = true;
+
+	// TODO
+	// uthread_running_true();
+	// log_info("jmp_thread");
+
 	__jmp_thread(&th->tf);
 }
 
@@ -99,6 +106,7 @@ static __noreturn void jmp_thread(thread_t *th)
  */
 static void jmp_thread_direct(thread_t *oldth, thread_t *newth)
 {
+	// log_info("%p => %p", oldth, newth);
 	assert_preempt_disabled();
 	assert(newth->thread_ready);
 
@@ -110,6 +118,11 @@ static void jmp_thread_direct(thread_t *oldth, thread_t *newth)
 			cpu_relax();
 	}
 	newth->thread_running = true;
+	
+	// TODO
+	// uthread_running_true();
+	// log_info("jmp_thread_direct");
+	
 	__jmp_thread_direct(&oldth->tf, &newth->tf, &oldth->thread_running);
 }
 
@@ -316,6 +329,7 @@ static __noinline bool do_watchdog(struct kthread *l)
 /* the main scheduler routine, decides what to run next */
 static __noreturn __noinline void schedule(void)
 {
+	log_info("schedule()");
 	struct kthread *r = NULL, *l = myk();
 	uint64_t start_tsc;
 	thread_t *th = NULL;
@@ -552,6 +566,8 @@ void thread_park_and_unlock_np(spinlock_t *l)
 	assert_preempt_disabled();
 	assert_spin_lock_held(l);
 	spin_unlock(l);
+	// log_info("enter_schedule() from unlock: %p", curth);
+	// log_info("thread_self(): %p", thread_self());
 	enter_schedule(curth);
 }
 
@@ -563,7 +579,9 @@ void thread_park_and_preempt_enable(void)
 {
 	thread_t *curth = thread_self();
 
-	assert_preempt_disabled();
+	assert_preempt_disabled();	
+	// log_info("enter_schedule() from preempt: %p", curth);
+	// log_info("thread_self(): %p", thread_self());
 	enter_schedule(curth);
 }
 
@@ -763,6 +781,10 @@ void thread_cede(void)
  */
 void thread_yield(void)
 {
+	// TODO
+	// uthread_running_false();
+	// log_info("thread_yield");
+
 	thread_t *curth = thread_self();
 
 	/* check for softirqs */
@@ -771,6 +793,8 @@ void thread_yield(void)
 	preempt_disable();
 	curth->thread_ready = false;
 	thread_ready(curth);
+	// log_info("enter_schedule() from yield: %p", curth);
+	// log_info("thread_self(): %p", thread_self());
 	enter_schedule(curth);
 }
 
@@ -912,7 +936,11 @@ static void thread_finish_exit(void)
  * thread_exit - terminates a thread
  */
 void thread_exit(void)
-{
+{	
+	// TODO
+	// uthread_running_false();
+	// log_info("thread_exit");
+
 	/* can't free the stack we're currently using, so switch */
 	preempt_disable();
 	jmp_runtime_nosave(thread_finish_exit);

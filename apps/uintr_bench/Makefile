@@ -21,7 +21,7 @@ all: bench
 #	$(LDXX) -o $@ $(LDFLAGS) $(librt_libs) $(RUNTIME_LIBS) $(program_obj) $(bench_obj)
 
 bench: $(bench_obj) $(program_obj) $(librt_libs) $(RUNTIME_DEPS)  
-	$(LDXX) -o $@ $(LDFLAGS) $(bench_obj) $(program_obj) $(librt_libs) $(RUNTIME_LIBS)
+	$(LDXX) -g -o $@ $(LDFLAGS) $(bench_obj) $(program_obj) $(librt_libs) $(RUNTIME_LIBS)
 
 # general build rules for all targets
 src = $(bench_src)
@@ -37,10 +37,10 @@ endif
 %.d: %.cc
 	@$(CXX) $(CXXFLAGS) -muintr -Iprograms $< -MM -MT $(@:.d=.o) >$@
 %.o: %.cc
-	$(CXX) $(CXXFLAGS) -muintr -Iprograms -c $< -o $@
+	$(CXX) $(CXXFLAGS) -g -muintr -Iprograms -c $< -o $@
 
 programs/*.o: programs/*.c
-	$(CC) -Iprograms -c $< -o $@
+	$(CC) -g -O3 -Iprograms -c $< -o $@
 
 .PHONY: clean
 clean:

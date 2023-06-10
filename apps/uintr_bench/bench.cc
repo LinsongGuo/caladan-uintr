@@ -62,8 +62,11 @@ void MainHandler(void *arg) {
 //				printf("%s yield start\n", bench_name[i].c_str());			
 				rt::Yield();
 //				printf("%s yield ends\n", bench_name[i].c_str());
-			}
+			}	
 
+			_stui();
+			// uthread_running_true();
+			
 			long long t1 = now();
 			bench_func[i]();
 			long long t2 = now();
@@ -101,6 +104,9 @@ int main(int argc, char *argv[]) {
   // enable_uintr_preempt();
   
   ret = runtime_init(argv[1], MainHandler, NULL);
+
+  printf("runtime_init ends\n");
+
   if (ret) {
     printf("failed to start runtime\n");
     return ret;

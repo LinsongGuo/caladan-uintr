@@ -58,19 +58,50 @@ void set_thread_affinity_numa(int numa, int core, int thread) {
 	sched_setaffinity(0, sizeof(mask), &mask);
 }
 
+void print() {
+	printf("ui_handler\n");
+	// printf("uthread_running: %d\n", uthread_running());
+}
+
+void print2() {
+	printf("Yield ends\n");
+}
+
 void __attribute__ ((interrupt))
      __attribute__((target("general-regs-only", "inline-all-stringops")))
      ui_handler(struct __uintr_frame *ui_frame,
 		unsigned long long vector) {
+	
+	// print();	
 	++uintr_recv;
-	_stui();
-	rt::Yield();
+	rt::Yield();	
+	_stui();	
+	//	print2();		
 }
+
+/*
+void __attribute__ ((interrupt))
+     __attribute__((target("general-regs-only", "inline-all-stringops")))
+     ui_handler(struct __uintr_frame *ui_frame,
+		unsigned long long vector) {
+	
+	print();	
+	if (uthread_running()) {
+		uthread_running_false();
+
+		++uintr_recv;
+		_stui();	
+		rt::Yield();	
+	//	print2();		
+		uthread_running_true();
+	}
+}
+*/
 
 void enable_uintr_preempt() {
 	uintr_preempt_enabled = 1;
 	start = now();
-	printf("enable: %d\n", uintr_preempt_enabled);
+	// printf("enable: %d\n", uintr_preempt_enabled);
 }
 
 void disable_uintr_preempt() {
@@ -103,6 +134,7 @@ void *timer(void *arg) {
 			last = current;
 			// printf("sneduipi %d\n", uipi_index);
             _senduipi(uipi_index);
+			uintr_sent ++;
         }
     } 
 	

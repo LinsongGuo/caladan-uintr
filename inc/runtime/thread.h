@@ -27,8 +27,30 @@ extern void thread_ready_head(thread_t *thread);
 extern thread_t *thread_create(thread_fn_t fn, void *arg);
 extern thread_t *thread_create_with_buf(thread_fn_t fn, void **buf, size_t len);
 
+DECLARE_PERTHREAD(int, __uthread_running);
 DECLARE_PERTHREAD(thread_t *, __self);
 DECLARE_PERTHREAD(unsigned int, kthread_idx);
+
+/**
+ * uthread_running() - if any uthread is running
+ */
+inline int uthread_running(void) {
+	return perthread_read_stable(__uthread_running);
+}
+
+/**
+ * uthread_running_true() - some uthread starts to run
+ */
+inline void uthread_running_true(void) {
+	perthread_store(__uthread_running, 1);
+}
+
+/**
+ * uthread_running_false() - no uthread is running now
+ */
+inline void uthread_running_false(void) {
+	perthread_store(__uthread_running, 0);
+}
 
 static inline unsigned int get_current_affinity(void)
 {
