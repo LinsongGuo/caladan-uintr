@@ -58,13 +58,13 @@ void set_thread_affinity_numa(int numa, int core, int thread) {
 	sched_setaffinity(0, sizeof(mask), &mask);
 }
 
-void print() {
-	printf("ui_handler\n");
+void print_entry() {
+	printf("entry\n");
 	// printf("uthread_running: %d\n", uthread_running());
 }
 
-void print2() {
-	printf("Yield ends\n");
+void print_exit() {
+	printf("exit\n");
 }
 
 void __attribute__ ((interrupt))
@@ -72,11 +72,17 @@ void __attribute__ ((interrupt))
      ui_handler(struct __uintr_frame *ui_frame,
 		unsigned long long vector) {
 	
-	// print();	
+	// print_entry();
+	
 	++uintr_recv;
 	rt::Yield();	
+
+	int i = 0;
+	for (i = 0; i < 10; ++i);
+
 	_stui();	
-	//	print2();		
+
+	// print_exit();		
 }
 
 /*

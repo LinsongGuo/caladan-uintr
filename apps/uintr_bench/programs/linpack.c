@@ -70,7 +70,7 @@ int linpack() {
   int arg = argc > 1 ? argv[1][0] - '0' : 3;
   if (arg == 0) return 0;
 
-  timestamp ( );
+  // timestamp ( );
   // printf ( "\n" );
   // printf ( "LINPACK_BENCH\n" );
   // printf ( "  C version\n" );
@@ -224,7 +224,7 @@ int linpack() {
   // printf ( "  Normal end of execution.\n" );
 
   // printf ( "\n" );
-  timestamp ( );
+  // timestamp ( );
 
   return 0;
 # undef LDA
