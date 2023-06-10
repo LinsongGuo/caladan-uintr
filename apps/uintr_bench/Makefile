@@ -40,7 +40,7 @@ endif
 	$(CXX) $(CXXFLAGS) -g -muintr -Iprograms -c $< -o $@
 
 programs/*.o: programs/*.c
-	$(CC) -g -O3 -Iprograms -c $< -o $@
+	$(CC) -g -Iprograms -c $< -o $@
 
 .PHONY: clean
 clean:

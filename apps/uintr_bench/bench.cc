@@ -43,15 +43,12 @@ void MainHandler(void *arg) {
   int i, bench_num = 0;
   for (i = 0; i < BENCH_NUM; ++i) {
 	bench_flag[i] = worker_spec.find(bench_name[i]) != std::string::npos;
-  	//std::cout << "flag: " << i << " " << bench_name[i] << " " << bench_flag[i] << std::endl;
 	bench_num += bench_flag[i];
   }	
   
   for (i = 0; i < BENCH_NUM; ++i) {
-  	// std::cout << "flag: " << i << " " << bench_flag[i] << std::endl;
 	if (bench_flag[i]) {
   		rt::Spawn([&, i]() {
-			// std::cout << "spawn " << bench_name[i] << "--" << std::endl;
  			started += 1;
     		printf("%s start: %d\n", bench_name[i].c_str(), started);
 			if (started == bench_num) {
@@ -75,7 +72,9 @@ void MainHandler(void *arg) {
 			if (finished == bench_num) {
 				disable_uintr_preempt();
 			}
-    		printf("%s end: %d %.3f\n", bench_name[i].c_str(), finished, 1.*(t2-t1)/1e9);
+
+			_clui();
+    		// printf("%s end: %d %.3f\n", bench_name[i].c_str(), finished, 1.*(t2-t1)/1e9);
   		});
   	}
   }
@@ -100,8 +99,6 @@ int main(int argc, char *argv[]) {
   worker_spec = std::string(argv[4]);
  
   uintr_init();
-  
-  // enable_uintr_preempt();
   
   ret = runtime_init(argv[1], MainHandler, NULL);
 
