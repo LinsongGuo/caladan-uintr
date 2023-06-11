@@ -17,11 +17,8 @@ uintr_obj = uintr.o
 # must be first
 all: bench 
 
-#bench: $(bench_obj) $(program_obj) $(librt_libs) $(RUNTIME_DEPS)  
-#	$(LDXX) -o $@ $(LDFLAGS) $(librt_libs) $(RUNTIME_LIBS) $(program_obj) $(bench_obj)
-
-bench: $(bench_obj) $(program_obj) $(librt_libs) $(RUNTIME_DEPS)  
-	$(LDXX) -g -o $@ $(LDFLAGS) $(bench_obj) $(program_obj) $(librt_libs) $(RUNTIME_LIBS)
+bench: $(program_obj) $(bench_obj) $(librt_libs) $(RUNTIME_DEPS)  
+	$(LDXX) -g -o $@ $(LDFLAGS) $(program_obj) $(bench_obj) $(librt_libs) $(RUNTIME_LIBS)
 
 # general build rules for all targets
 src = $(bench_src)
@@ -32,6 +29,9 @@ ifneq ($(MAKECMDGOALS),clean)
 -include $(dep)   # include all dep files in the makefile
 endif
 
+#programs/*.o: programs/*.c
+#	gcc -g -muintr -Iprograms -c $< -o $@
+
 # rule to generate a dep file by using the C preprocessor
 # (see man cpp for details on the -MM and -MT options)
 %.d: %.cc
@@ -39,9 +39,9 @@ endif
 %.o: %.cc
 	$(CXX) $(CXXFLAGS) -g -muintr -Iprograms -c $< -o $@
 
-programs/*.o: programs/*.c
-	$(CC) -g -Iprograms -c $< -o $@
+# programs/*.o: programs/*.c
+#	$(CC) -g -muintr -Iprograms -c $< -o $@
 
 .PHONY: clean
 clean:
-	rm -f $(obj) $(dep) $(uintr_obj) $(program_obj) bench
+	rm -f $(obj) $(dep) $(uintr_obj) bench # $(program_obj)

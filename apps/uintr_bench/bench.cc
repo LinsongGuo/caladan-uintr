@@ -74,7 +74,7 @@ void MainHandler(void *arg) {
 			}
 
 			_clui();
-    		// printf("%s end: %d %.3f\n", bench_name[i].c_str(), finished, 1.*(t2-t1)/1e9);
+    		printf("%s end: %d %.3f\n", bench_name[i].c_str(), finished, 1.*(t2-t1)/1e9);
   		});
   	}
   }

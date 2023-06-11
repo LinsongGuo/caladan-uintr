@@ -1,7 +1,9 @@
 # include <stdlib.h>
 # include <stdio.h>
-# include <math.h>
+// # include <math.h>
 # include <time.h>
+
+#include <x86intrin.h>
 
 #include "programs.h"
 
@@ -67,8 +69,8 @@ int linpack() {
   double total;
   double *x;
 
-  int arg = argc > 1 ? argv[1][0] - '0' : 3;
-  if (arg == 0) return 0;
+  // int arg = argc > 1 ? argv[1][0] - '0' : 3;
+  // if (arg == 0) return 0;
 
   // timestamp ( );
   // printf ( "\n" );
@@ -86,11 +88,14 @@ int linpack() {
   Allocate space for arrays.
 */
   a = r8mat_gen ( LDA, N );
+
+  _clui();
   b = ( double * ) malloc ( N * sizeof ( double ) );
   ipvt = ( int * ) malloc ( N * sizeof ( int ) );
   resid = ( double * ) malloc ( N * sizeof ( double ) );
   rhs = ( double * ) malloc ( N * sizeof ( double ) );
   x = ( double * ) malloc ( N * sizeof ( double ) );
+  _stui();
 
   a_max = 0.0;
   for ( j = 0; j < N; j++ )
@@ -118,14 +123,17 @@ int linpack() {
 
   info = dgefa ( a, LDA, N, ipvt );
 
+  _clui();
   if ( info != 0 )
   {
     printf ( "\n" );
     printf ( "LINPACK_BENCH - Fatal error!\n" );
     printf ( "  The matrix A is apparently singular.\n" );
     printf ( "  Abnormal end of execution.\n" );
+    exit(-1);
     return 1;
   }
+  _stui();
 
   t2 = cpu_time ( );
   time[0] = t2 - t1;
@@ -139,8 +147,11 @@ int linpack() {
   time[1] = t2 - t1;
 
   total = time[0] + time[1];
-
+ 
+  _clui();
   free ( a );
+  _stui();
+
 /*
   Compute a residual to verify results.
 */
@@ -210,12 +221,14 @@ int linpack() {
   // printf ( "Unrolled Double  Precision %9f Mflops\n", time[3]);
   // printf ( "\n" );
 
+  _clui();
   free ( a );
   free ( b );
   free ( ipvt );
   free ( resid );
   free ( rhs );
   free ( x );
+  _stui();
 /*
   Terminate.
 */
@@ -264,9 +277,11 @@ double cpu_time ( void )
 */
 {
   double value;
-
+	
+  // _clui();
   value = ( double ) clock ( ) 
         / ( double ) CLOCKS_PER_SEC;
+  // _stui();
 
   return value;
 }
@@ -1129,12 +1144,15 @@ double *r8mat_gen ( int lda, int n )
     Output, double R8MAT_GEN[LDA*N], the N by N matrix.
 */
 {
+  // _clui();
   double *a;
   int i;
   int init[4] = { 1, 2, 3, 1325 };
   int j;
 
+  _clui();
   a = ( double * ) malloc ( lda * n * sizeof ( double ) );
+  // _stui();
 
   for ( j = 1; j <= n; j++ )
   {
@@ -1143,7 +1161,8 @@ double *r8mat_gen ( int lda, int n )
       a[i-1+(j-1)*lda] = r8_random ( init ) - 0.5;
     }
   }
-
+  
+  _stui();
   return a;
 }
 /******************************************************************************/

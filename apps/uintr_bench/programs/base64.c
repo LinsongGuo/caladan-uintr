@@ -10,6 +10,8 @@
 #include <time.h>
 #include <stdint.h>
 
+#include <x86intrin.h>
+
 #include "programs.h"
 
 typedef unsigned int uint;
@@ -40,7 +42,10 @@ void init_decode_table() {
 #define next_char(x) char x = decode_table[(unsigned char)*str++]; if (x < 0) return 1;
 
 int decode(int size, const char* str, int* out_size, char** output) {
+  _clui();
   *output = (char*) malloc( decode_size(size) );
+  _stui();
+
   char *out = *output;
   while (size > 0 && (str[size - 1] == '\n' || str[size - 1] == '\r' || str[size - 1] == '=')) size--;
   const char* ends = str + size - 4;
@@ -72,7 +77,10 @@ int decode(int size, const char* str, int* out_size, char** output) {
 }
 
 void encode(int size, const char* str, int* out_size, char** output) {
+  _clui();
   *output = (char*) malloc( encode_size(size) );
+  _stui();
+
   char *out = *output;
   const char* ends = str + (size - size % 3);
   uint n;
@@ -123,8 +131,11 @@ int base64() {
   init_decode_table();
 
   const int STR_SIZE = 10000000;
-
+  
+  _clui();
   char *str = (char*) malloc(STR_SIZE + 1);
+  _stui();
+
   for (int i = 0; i < STR_SIZE; i++) { str[i] = 'a'; }
   str[STR_SIZE] = '\0';
 
