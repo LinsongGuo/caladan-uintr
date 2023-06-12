@@ -12,6 +12,7 @@ extern "C" {
 
 #include <chrono>
 #include <iostream>
+#include <sstream>
 
 barrier_t barrier;
 
@@ -19,64 +20,99 @@ bool synth_barrier_wait() { return barrier_wait(&barrier); }
 
 namespace {
 
-typedef int (*bench_type)(void);
+typedef long long (*bench_type)(void);
 
 int threads;
 uint64_t n;
 std::string worker_spec;
 // volatile 
-int started = 0, finished = 0;
 
-const int BENCH_NUM = 2;
-std::string bench_name[BENCH_NUM] = {"linpack", "base64"};
-bench_type bench_func[BENCH_NUM] = {linpack, base64};
-// std::string bench_name[BENCH_NUM] = {"sum", "sum"};
-// bench_type bench_func[BENCH_NUM] = {sum, sum};
-bool bench_flag[BENCH_NUM];
+const int BENCH_NUM = 4;
+std::string bench_name[BENCH_NUM] = {"linpack", "base64", "matmul", "sum"};
+bench_type bench_ptr[BENCH_NUM] = {linpack, base64, matmul, sum};
+std::vector<std::string> task_name;
+std::vector<bench_type> task_ptr;
+long long task_result[BENCH_NUM];
+
+bench_type name2ptr(std::string name) {
+	bench_type ptr = nullptr;
+	for (int i = 0; i < BENCH_NUM; ++i) {
+		if (name == bench_name[i]) {
+			ptr = bench_ptr[i];
+		}
+	}
+	return ptr;
+}
+
+void parse(std::string input) {
+    char delimiter = '+';
+    std::stringstream ss(input);
+    std::string name;
+
+    while (getline(ss, name, delimiter)) {
+       	task_name.push_back(name); 
+		task_ptr.push_back(name2ptr(name));   
+	}
+
+	std::cout << "tasks:";
+    for (const auto& t : task_name) {
+        std::cout << ' ' << t;
+    }
+	std::cout << std::endl;
+}
 
 void MainHandler(void *arg) {
   rt::WaitGroup wg(1);
-  uint64_t cnt[threads] = {};
-
   barrier_init(&barrier, threads);
-	
+  
+  /*	
   int i, bench_num = 0;
   for (i = 0; i < BENCH_NUM; ++i) {
 	bench_flag[i] = worker_spec.find(bench_name[i]) != std::string::npos;
 	bench_num += bench_flag[i];
   }	
+  */
+
+  // Init functions for benchmarks.
+  base64_init();
   
-  for (i = 0; i < BENCH_NUM; ++i) {
-	if (bench_flag[i]) {
-  		rt::Spawn([&, i]() {
- 			started += 1;
-    		printf("%s start: %d\n", bench_name[i].c_str(), started);
-			if (started == bench_num) {
-				enable_uintr_preempt();
-			}
+  int started = 0, finished = 0;
+  int task_num = task_name.size();
+  for (int i = 0; i < task_num; ++i) {
+  	rt::Spawn([&, i]() {
+ 		started += 1;
+    	// printf("%s start: %d\n", task_name[i].c_str(), started);
 				
-			if (started < bench_num) {
-//				printf("%s yield start\n", bench_name[i].c_str());			
-				rt::Yield();
-//				printf("%s yield ends\n", bench_name[i].c_str());
-			}	
+		if (started < task_num) {
+			rt::Yield();
+		}
+		else {
+			uintr_timer_start();
+		}	
 
-			_stui();
-			// uthread_running_true();
+		_stui();
 			
-			long long t1 = now();
-			bench_func[i]();
-			long long t2 = now();
+		long long t1 = now();
+		task_result[i] = task_ptr[i]();
+		long long t2 = now();
   		
-			finished += 1;
-			if (finished == bench_num) {
-				disable_uintr_preempt();
+		_clui();
+			
+		finished += 1;
+		if (finished == task_num) {
+			uintr_timer_end();
+			printf("results:");
+			for (int t = 0; t < task_num; ++t) {
+				printf(" %lld", task_result[t]);
 			}
+			printf("\n");
 
-			_clui();
-    		printf("%s end: %d %.3f\n", bench_name[i].c_str(), finished, 1.*(t2-t1)/1e9);
-  		});
-  	}
+			uintr_summary();
+ 			wg.Done();
+		}
+
+    	// printf("%s end: %d %.3f\n", task_name[i].c_str(), finished, 1.*(t2-t1)/1e9);
+  	});
   }
 
   // never returns
@@ -85,7 +121,33 @@ void MainHandler(void *arg) {
 
 }  // anonymous namespace
 
+
+void measure_uif() {
+	unsigned long long t1, t2;
+
+	t1 = now();
+	t2 = now();
+	printf("timing overhead: %lld ns\n", t2 - t1);
+
+	t1 = now();
+	int i, count = 100;
+	for (i = 0; i < count; ++i) {
+		_stui();
+	}
+	t2 = now();
+	printf("stui: %lld ns\n", (t2 - t1) / count);
+
+	t1 = now();
+	for (i = 0; i < count; ++i) {
+		_clui();
+	}
+	t2 = now();
+	printf("clui: %lld ns\n", (t2 - t1) / count);
+}
+
 int main(int argc, char *argv[]) {
+  // measure_uif();
+ 
   int ret;
 
   if (argc != 5) {
@@ -97,6 +159,7 @@ int main(int argc, char *argv[]) {
   threads = std::stoi(argv[2], nullptr, 0);
   n = std::stoul(argv[3], nullptr, 0);
   worker_spec = std::string(argv[4]);
+  parse(worker_spec);
  
   uintr_init();
   

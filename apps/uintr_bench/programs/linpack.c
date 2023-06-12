@@ -23,7 +23,7 @@ void timestamp ( );
 
 /******************************************************************************/
 
-int linpack() {
+long long linpack() {
   int argc = 1;
   char **argv;
 /******************************************************************************/
@@ -209,9 +209,11 @@ int linpack() {
   time[5] = total / cray;
 
   // printf ( "\n" );
+  // _clui();
   // printf ( "     Norm. Resid      Resid           MACHEP         X[1]          X[N]\n" );
   // printf ( "\n" );
   // printf ( "  %14f  %14f  %14e  %14f  %14f\n", residn, resid_max, eps, b[0], b[N-1] );
+  // _stui();
   // printf ( "\n" );
   // printf ( "      Factor     Solve      Total            Unit      Cray-Ratio\n" );
   // printf ( "\n" );
@@ -239,7 +241,8 @@ int linpack() {
   // printf ( "\n" );
   // timestamp ( );
 
-  return 0;
+  return (long long)residn;
+  // return 0;
 # undef LDA
 # undef N
 }
@@ -278,10 +281,10 @@ double cpu_time ( void )
 {
   double value;
 	
-  // _clui();
+  _clui();
   value = ( double ) clock ( ) 
         / ( double ) CLOCKS_PER_SEC;
-  // _stui();
+  _stui();
 
   return value;
 }
@@ -1144,13 +1147,13 @@ double *r8mat_gen ( int lda, int n )
     Output, double R8MAT_GEN[LDA*N], the N by N matrix.
 */
 {
-  // _clui();
+  _clui();
   double *a;
   int i;
   int init[4] = { 1, 2, 3, 1325 };
   int j;
 
-  _clui();
+  // _clui();
   a = ( double * ) malloc ( lda * n * sizeof ( double ) );
   // _stui();
 

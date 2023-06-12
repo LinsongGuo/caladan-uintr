@@ -1,10 +1,13 @@
 #ifndef PROGRAMS_H
 #define PROGRAMS_H
 
-int base64();
+long long base64();
+void base64_init();
 
-int linpack();
+long long linpack();
 
-int sum();
+long long sum();
+
+long long matmul();
 
 #endif // PROGRAMS_H

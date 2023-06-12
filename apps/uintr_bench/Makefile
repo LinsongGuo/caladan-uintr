@@ -10,6 +10,8 @@ INC += -I$(ROOT_PATH)/bindings/cc
 
 RUNTIME_LIBS := $(RUNTIME_LIBS) -lnuma
 
+# CXXFLAGS := $(subst -O3,-O2,$(CXXFLAGS))
+
 program_src = $(wildcard programs/*.c)
 program_obj = $(patsubst %.c,%.o,$(program_src))
 uintr_obj = uintr.o 
@@ -29,7 +31,7 @@ ifneq ($(MAKECMDGOALS),clean)
 -include $(dep)   # include all dep files in the makefile
 endif
 
-#programs/*.o: programs/*.c
+# programs/*.o: programs/*.c
 #	gcc -g -muintr -Iprograms -c $< -o $@
 
 # rule to generate a dep file by using the C preprocessor

@@ -37,7 +37,7 @@ int uintr_sent = 0, uintr_recv = 0;
 int uintr_fd;
 long long interval;
 long long start, end;
-volatile int uintr_preempt_enabled = 0;
+volatile int uintr_timer_flag = 0;
 
 void uintr_summary(void);
 
@@ -60,7 +60,6 @@ void set_thread_affinity_numa(int numa, int core, int thread) {
 
 void print_entry() {
 	printf("entry\n");
-	// printf("uthread_running: %d\n", uthread_running());
 }
 
 void print_exit() {
@@ -79,40 +78,21 @@ void __attribute__ ((interrupt))
 
 	int i = 0;
 	for (i = 0; i < 10; ++i);
-
+    
 	_stui();	
 
 	// print_exit();		
 }
 
-/*
-void __attribute__ ((interrupt))
-     __attribute__((target("general-regs-only", "inline-all-stringops")))
-     ui_handler(struct __uintr_frame *ui_frame,
-		unsigned long long vector) {
-	
-	print();	
-	if (uthread_running()) {
-		uthread_running_false();
-
-		++uintr_recv;
-		_stui();	
-		rt::Yield();	
-	//	print2();		
-		uthread_running_true();
-	}
-}
-*/
-
-void enable_uintr_preempt() {
-	uintr_preempt_enabled = 1;
+void uintr_timer_start() {
+	uintr_timer_flag = 1;
 	start = now();
-	// printf("enable: %d\n", uintr_preempt_enabled);
+	// printf("enable: %d\n", uintr_timer_flag);
 }
 
-void disable_uintr_preempt() {
+void uintr_timer_end() {
 	end = now();
-	uintr_preempt_enabled = -1;
+	uintr_timer_flag = -1;
 }
 
 void *timer(void *arg) {
@@ -127,11 +107,11 @@ void *timer(void *arg) {
 
 	
     long long last = now(), current;
-	while (uintr_preempt_enabled != -1) {
+	while (uintr_timer_flag != -1) {
         current = now();
-		// printf("%lld %d\n", current, uintr_preempt_enabled);
+		// printf("%lld %d\n", current, uintr_timer_flag);
 		
-		if (!uintr_preempt_enabled) {
+		if (!uintr_timer_flag) {
 			last = current;
 			continue;
 		}
@@ -144,7 +124,7 @@ void *timer(void *arg) {
         }
     } 
 	
-	uintr_summary();
+	// uintr_summary();
     
 	return NULL;
 }
@@ -168,7 +148,7 @@ void uintr_init()
 */
 
 	// Enable interrupts
-	_stui();
+	// _stui();
 
 	interval = atoi(getenv("INT_INTERVAL")) * 1000L;
 	printf("interval: %lld\n", interval);
@@ -182,17 +162,16 @@ void uintr_init()
 
 void uintr_summary(void)
 {
-	printf("Uintrs sent: %d\n", uintr_sent);
-	
 	/*
 	int i;
 	for (i = 1; i <= uintr_cnt; ++i) {
 		printf("%lld\n",ts[i] - ts[0]); 
 	}*/
 
-	printf("start = %lld, end = %lld, time = %lld\n", start, end, end - start);
+	// printf("start = %lld, end = %lld, time = %lld\n", start, end, end - start);
     printf("Execution: %.9f\n", 1.*(end - start) / 1e9);
-    printf("Number of uintrs: %d\n", uintr_recv);
+    printf("Uintrs_received: %d\n", uintr_recv);	
+    printf("Uintrs_sent: %d\n", uintr_sent);
 }
 
 #endif //LIBIUNTR_H
