@@ -1,0 +1,24 @@
+tasks: matmul linpack
+interval: 1000
+CPU 47| <5> thread: created thread 0
+CPU 47| <5> cpu: detected 160 cores, 2 nodes
+[  0.001050] CPU 47| <5> loading configuration from '../../server.config'
+[  0.001081] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001082] CPU 47| <5> cfg: task is latency critical (LC)
+[  0.001083] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001084] CPU 47| <5> cfg: storage disabled, directpath disabled
+[  0.001086] CPU 47| <5> process pid: 95884
+[  0.009241] CPU 47| <5> shm: using 69206016 bytes
+[  0.009261] CPU 47| <5> net: started network stack
+[  0.009262] CPU 47| <5> net: using the following configuration:
+[  0.009263] CPU 47| <5>   addr:	192.168.1.3
+[  0.009264] CPU 47| <5>   netmask:	255.255.255.0
+[  0.009264] CPU 47| <5>   gateway:	192.168.1.1
+[  0.009265] CPU 47| <5>   mac:		0E:A5:86:2D:4D:35
+[  0.009266] CPU 47| <5>   mtu:		1500
+[  0.009510] CPU 47| <5> spawning 1 kthreads
+results: -9223372036854775808 -9223372036854775808
+Execution: 6.589082624
+Uintrs_received: 6221743
+Uintrs_sent: 6429738
+[  6.611363] CPU 01| <5> init: shutting down -> SUCCESS
