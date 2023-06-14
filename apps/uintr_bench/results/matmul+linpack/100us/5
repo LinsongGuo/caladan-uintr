@@ -1,24 +1,24 @@
 tasks: matmul linpack
 interval: 100000
-CPU 47| <5> thread: created thread 0
-CPU 47| <5> cpu: detected 160 cores, 2 nodes
-[  0.001041] CPU 47| <5> loading configuration from '../../server.config'
-[  0.001075] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001076] CPU 47| <5> cfg: task is latency critical (LC)
-[  0.001077] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001078] CPU 47| <5> cfg: storage disabled, directpath disabled
-[  0.001081] CPU 47| <5> process pid: 95797
-[  0.009593] CPU 47| <5> shm: using 69206016 bytes
-[  0.009612] CPU 47| <5> net: started network stack
-[  0.009613] CPU 47| <5> net: using the following configuration:
-[  0.009614] CPU 47| <5>   addr:	192.168.1.3
-[  0.009615] CPU 47| <5>   netmask:	255.255.255.0
-[  0.009616] CPU 47| <5>   gateway:	192.168.1.1
-[  0.009616] CPU 47| <5>   mac:		0E:A5:86:2D:4D:35
-[  0.009617] CPU 47| <5>   mtu:		1500
-[  0.009860] CPU 47| <5> spawning 1 kthreads
-results: -191000000 21488344867393
-Execution: 2.865052416
-Uintrs_received: 27393
-Uintrs_sent: 28616
-[  2.885519] CPU 01| <5> init: shutting down -> SUCCESS
+CPU 128| <5> thread: created thread 0
+CPU 128| <5> cpu: detected 160 cores, 2 nodes
+[  0.001030] CPU 128| <5> loading configuration from '../../server.config'
+[  0.001063] CPU 128| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001065] CPU 128| <5> cfg: task is latency critical (LC)
+[  0.001065] CPU 128| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001066] CPU 128| <5> cfg: storage disabled, directpath disabled
+[  0.001069] CPU 128| <5> process pid: 129175
+[  0.009017] CPU 128| <5> shm: using 69206016 bytes
+[  0.009037] CPU 128| <5> net: started network stack
+[  0.009037] CPU 128| <5> net: using the following configuration:
+[  0.009039] CPU 128| <5>   addr:	192.168.1.3
+[  0.009040] CPU 128| <5>   netmask:	255.255.255.0
+[  0.009040] CPU 128| <5>   gateway:	192.168.1.1
+[  0.009041] CPU 128| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009042] CPU 128| <5>   mtu:		1500
+[  0.009298] CPU 128| <5> spawning 1 kthreads
+results: -191000000 22948812357465
+Execution: 2.866048768
+Uintrs_received: 27400
+Uintrs_sent: 28632
+[  2.885955] CPU 01| <5> init: shutting down -> SUCCESS

@@ -1,24 +1,24 @@
 tasks: base64 base64
 interval: 100000
-CPU 127| <5> thread: created thread 0
-CPU 127| <5> cpu: detected 160 cores, 2 nodes
-[  0.001108] CPU 127| <5> loading configuration from '../../server.config'
-[  0.001139] CPU 127| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001140] CPU 127| <5> cfg: task is latency critical (LC)
-[  0.001141] CPU 127| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001142] CPU 127| <5> cfg: storage disabled, directpath disabled
-[  0.001145] CPU 127| <5> process pid: 94929
-[  0.009196] CPU 127| <5> shm: using 69206016 bytes
-[  0.009215] CPU 127| <5> net: started network stack
-[  0.009216] CPU 127| <5> net: using the following configuration:
-[  0.009217] CPU 127| <5>   addr:	192.168.1.3
-[  0.009218] CPU 127| <5>   netmask:	255.255.255.0
-[  0.009219] CPU 127| <5>   gateway:	192.168.1.1
-[  0.009219] CPU 127| <5>   mac:		0E:A5:86:2D:4D:35
-[  0.009220] CPU 127| <5>   mtu:		1500
-[  0.009464] CPU 127| <5> spawning 1 kthreads
+CPU 128| <5> thread: created thread 0
+CPU 128| <5> cpu: detected 160 cores, 2 nodes
+[  0.001167] CPU 128| <5> loading configuration from '../../server.config'
+[  0.001198] CPU 128| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001199] CPU 128| <5> cfg: task is latency critical (LC)
+[  0.001200] CPU 128| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001201] CPU 128| <5> cfg: storage disabled, directpath disabled
+[  0.001203] CPU 128| <5> process pid: 126336
+[  0.009164] CPU 128| <5> shm: using 69206016 bytes
+[  0.009182] CPU 128| <5> net: started network stack
+[  0.009182] CPU 128| <5> net: using the following configuration:
+[  0.009183] CPU 128| <5>   addr:	192.168.1.3
+[  0.009184] CPU 128| <5>   netmask:	255.255.255.0
+[  0.009185] CPU 128| <5>   gateway:	192.168.1.1
+[  0.009185] CPU 128| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009187] CPU 128| <5>   mtu:		1500
+[  0.009489] CPU 128| <5> spawning 1 kthreads
 results: 2333333600 2333333600
-Execution: 3.619730944
-Uintrs_received: 36141
-Uintrs_sent: 36152
-[  3.640263] CPU 01| <5> init: shutting down -> SUCCESS
+Execution: 3.611632128
+Uintrs_received: 36064
+Uintrs_sent: 36081
+[  3.632181] CPU 01| <5> init: shutting down -> SUCCESS

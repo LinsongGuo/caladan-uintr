@@ -2,22 +2,23 @@ tasks: linpack linpack linpack
 interval: 20000
 CPU 47| <5> thread: created thread 0
 CPU 47| <5> cpu: detected 160 cores, 2 nodes
-[  0.001109] CPU 47| <5> loading configuration from '../../server.config'
-[  0.001141] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001143] CPU 47| <5> cfg: task is latency critical (LC)
-[  0.001143] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001144] CPU 47| <5> cfg: storage disabled, directpath disabled
-[  0.001147] CPU 47| <5> process pid: 95963
-[  0.009275] CPU 47| <5> shm: using 69206016 bytes
-[  0.009296] CPU 47| <5> net: started network stack
-[  0.009297] CPU 47| <5> net: using the following configuration:
-[  0.009298] CPU 47| <5>   addr:	192.168.1.3
-[  0.009299] CPU 47| <5>   netmask:	255.255.255.0
-[  0.009300] CPU 47| <5>   gateway:	192.168.1.1
-[  0.009300] CPU 47| <5>   mac:		0E:A5:86:2D:4D:35
-[  0.009302] CPU 47| <5>   mtu:		1500
-[  0.009540] CPU 47| <5> spawning 1 kthreads
-
-LINPACK_BENCH - Fatal error!
-  The matrix A is apparently singular.
-  Abnormal end of execution.
+[  0.001204] CPU 47| <5> loading configuration from '../../server.config'
+[  0.001238] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001239] CPU 47| <5> cfg: task is latency critical (LC)
+[  0.001240] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001241] CPU 47| <5> cfg: storage disabled, directpath disabled
+[  0.001244] CPU 47| <5> process pid: 128020
+[  0.009321] CPU 47| <5> shm: using 69206016 bytes
+[  0.009341] CPU 47| <5> net: started network stack
+[  0.009342] CPU 47| <5> net: using the following configuration:
+[  0.009343] CPU 47| <5>   addr:	192.168.1.3
+[  0.009344] CPU 47| <5>   netmask:	255.255.255.0
+[  0.009345] CPU 47| <5>   gateway:	192.168.1.1
+[  0.009345] CPU 47| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009346] CPU 47| <5>   mtu:		1500
+[  0.009618] CPU 47| <5> spawning 1 kthreads
+results: -9223372036854775808 -9223372036854775808 -9223372036854775808
+Execution: 6.121631232
+Uintrs_received: 286230
+Uintrs_sent: 302620
+[  6.143828] CPU 01| <5> init: shutting down -> SUCCESS

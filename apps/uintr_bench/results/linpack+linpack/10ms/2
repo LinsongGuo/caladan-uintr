@@ -1,24 +1,24 @@
 tasks: linpack linpack
 interval: 10000000
-CPU 46| <5> thread: created thread 0
-CPU 46| <5> cpu: detected 160 cores, 2 nodes
-[  0.001080] CPU 46| <5> loading configuration from '../../server.config'
-[  0.001113] CPU 46| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001114] CPU 46| <5> cfg: task is latency critical (LC)
-[  0.001115] CPU 46| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001116] CPU 46| <5> cfg: storage disabled, directpath disabled
-[  0.001119] CPU 46| <5> process pid: 120086
-[  0.011391] CPU 46| <5> shm: using 69206016 bytes
-[  0.011411] CPU 46| <5> net: started network stack
-[  0.011412] CPU 46| <5> net: using the following configuration:
-[  0.011413] CPU 46| <5>   addr:	192.168.1.3
-[  0.011414] CPU 46| <5>   netmask:	255.255.255.0
-[  0.011415] CPU 46| <5>   gateway:	192.168.1.1
-[  0.011415] CPU 46| <5>   mac:		46:EE:20:DA:06:41
-[  0.011416] CPU 46| <5>   mtu:		1500
-[  0.011692] CPU 46| <5> spawning 1 kthreads
-results: 39348965020516 24130047890051
-Execution: 3.752710144
-Uintrs_received: 359
+CPU 47| <5> thread: created thread 0
+CPU 47| <5> cpu: detected 160 cores, 2 nodes
+[  0.001192] CPU 47| <5> loading configuration from '../../server.config'
+[  0.001225] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001227] CPU 47| <5> cfg: task is latency critical (LC)
+[  0.001227] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001228] CPU 47| <5> cfg: storage disabled, directpath disabled
+[  0.001231] CPU 47| <5> process pid: 128204
+[  0.009260] CPU 47| <5> shm: using 69206016 bytes
+[  0.009278] CPU 47| <5> net: started network stack
+[  0.009279] CPU 47| <5> net: using the following configuration:
+[  0.009280] CPU 47| <5>   addr:	192.168.1.3
+[  0.009281] CPU 47| <5>   netmask:	255.255.255.0
+[  0.009282] CPU 47| <5>   gateway:	192.168.1.1
+[  0.009282] CPU 47| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009283] CPU 47| <5>   mtu:		1500
+[  0.009518] CPU 47| <5> spawning 1 kthreads
+results: -9223372036854775808 -9223372036854775808
+Execution: 3.755758080
+Uintrs_received: 358
 Uintrs_sent: 375
-[  3.773688] CPU 01| <5> init: shutting down -> SUCCESS
+[  3.776419] CPU 01| <5> init: shutting down -> SUCCESS

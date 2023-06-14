@@ -3,7 +3,7 @@
 work=$1
 Tus=(100000000 10000 1000 100 50 20 10 5 4 3 2 1)
 Tname=(baseline 10ms 1ms 100us 50us 20us 10us 5us 4us 3us 2us 1us)
-trial=5
+trial=10
 
 folder="results/$work"
 if [ ! -d "$folder" ]; then

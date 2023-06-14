@@ -1,0 +1,24 @@
+tasks: linpack sum
+interval: 1000
+CPU 48| <5> thread: created thread 0
+CPU 48| <5> cpu: detected 160 cores, 2 nodes
+[  0.001060] CPU 48| <5> loading configuration from '../../server.config'
+[  0.001093] CPU 48| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001095] CPU 48| <5> cfg: task is latency critical (LC)
+[  0.001095] CPU 48| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001096] CPU 48| <5> cfg: storage disabled, directpath disabled
+[  0.001099] CPU 48| <5> process pid: 96465
+[  0.009046] CPU 48| <5> shm: using 69206016 bytes
+[  0.009066] CPU 48| <5> net: started network stack
+[  0.009067] CPU 48| <5> net: using the following configuration:
+[  0.009068] CPU 48| <5>   addr:	192.168.1.3
+[  0.009069] CPU 48| <5>   netmask:	255.255.255.0
+[  0.009070] CPU 48| <5>   gateway:	192.168.1.1
+[  0.009070] CPU 48| <5>   mac:		0E:A5:86:2D:4D:35
+[  0.009071] CPU 48| <5>   mtu:		1500
+[  0.009309] CPU 48| <5> spawning 1 kthreads
+results: 20 100489436115264
+Execution: 7.747474176
+Uintrs_received: 7397009
+Uintrs_sent: 7561080
+[  7.770169] CPU 01| <5> init: shutting down -> SUCCESS

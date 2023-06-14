@@ -2,23 +2,23 @@ tasks: base64
 interval: 100000000000
 CPU 46| <5> thread: created thread 0
 CPU 46| <5> cpu: detected 160 cores, 2 nodes
-[  0.001771] CPU 47| <5> loading configuration from '../../server.config'
-[  0.001808] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001809] CPU 47| <5> cfg: task is latency critical (LC)
-[  0.001810] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001811] CPU 47| <5> cfg: storage disabled, directpath disabled
-[  0.001814] CPU 47| <5> process pid: 94327
-[  0.013099] CPU 47| <5> shm: using 69206016 bytes
-[  0.013117] CPU 47| <5> net: started network stack
-[  0.013117] CPU 47| <5> net: using the following configuration:
-[  0.013119] CPU 47| <5>   addr:	192.168.1.3
-[  0.013120] CPU 47| <5>   netmask:	255.255.255.0
-[  0.013120] CPU 47| <5>   gateway:	192.168.1.1
-[  0.013121] CPU 47| <5>   mac:		0E:A5:86:2D:4D:35
-[  0.013122] CPU 47| <5>   mtu:		1500
-[  0.013336] CPU 47| <5> spawning 1 kthreads
+[  0.001348] CPU 49| <5> loading configuration from '../../server.config'
+[  0.001381] CPU 49| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001383] CPU 49| <5> cfg: task is latency critical (LC)
+[  0.001383] CPU 49| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001385] CPU 49| <5> cfg: storage disabled, directpath disabled
+[  0.001388] CPU 49| <5> process pid: 126537
+[  0.009372] CPU 49| <5> shm: using 69206016 bytes
+[  0.009391] CPU 49| <5> net: started network stack
+[  0.009392] CPU 49| <5> net: using the following configuration:
+[  0.009393] CPU 49| <5>   addr:	192.168.1.3
+[  0.009394] CPU 49| <5>   netmask:	255.255.255.0
+[  0.009395] CPU 49| <5>   gateway:	192.168.1.1
+[  0.009395] CPU 49| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009396] CPU 49| <5>   mtu:		1500
+[  0.009644] CPU 49| <5> spawning 1 kthreads
 results: 2333333600
-Execution: 1.790871296
+Execution: 1.791426816
 Uintrs_received: 0
 Uintrs_sent: 0
-[  1.814380] CPU 01| <5> init: shutting down -> SUCCESS
+[  1.811204] CPU 01| <5> init: shutting down -> SUCCESS

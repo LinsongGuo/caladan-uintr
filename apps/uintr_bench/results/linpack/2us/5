@@ -2,23 +2,23 @@ tasks: linpack
 interval: 2000
 CPU 127| <5> thread: created thread 0
 CPU 127| <5> cpu: detected 160 cores, 2 nodes
-[  0.001026] CPU 127| <5> loading configuration from '../../server.config'
+[  0.001023] CPU 127| <5> loading configuration from '../../server.config'
 [  0.001057] CPU 127| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
 [  0.001058] CPU 127| <5> cfg: task is latency critical (LC)
 [  0.001059] CPU 127| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
 [  0.001060] CPU 127| <5> cfg: storage disabled, directpath disabled
-[  0.001063] CPU 127| <5> process pid: 94735
-[  0.009081] CPU 127| <5> shm: using 69206016 bytes
-[  0.009100] CPU 127| <5> net: started network stack
-[  0.009101] CPU 127| <5> net: using the following configuration:
-[  0.009102] CPU 127| <5>   addr:	192.168.1.3
-[  0.009103] CPU 127| <5>   netmask:	255.255.255.0
-[  0.009104] CPU 127| <5>   gateway:	192.168.1.1
-[  0.009104] CPU 127| <5>   mac:		0E:A5:86:2D:4D:35
-[  0.009105] CPU 127| <5>   mtu:		1500
-[  0.009352] CPU 127| <5> spawning 1 kthreads
+[  0.001063] CPU 127| <5> process pid: 128789
+[  0.009544] CPU 127| <5> shm: using 69206016 bytes
+[  0.009563] CPU 127| <5> net: started network stack
+[  0.009563] CPU 127| <5> net: using the following configuration:
+[  0.009565] CPU 127| <5>   addr:	192.168.1.3
+[  0.009566] CPU 127| <5>   netmask:	255.255.255.0
+[  0.009566] CPU 127| <5>   gateway:	192.168.1.1
+[  0.009567] CPU 127| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009568] CPU 127| <5>   mtu:		1500
+[  0.009804] CPU 127| <5> spawning 1 kthreads
 results: 20
-Execution: 2.589720576
-Uintrs_received: 1202549
-Uintrs_sent: 1263604
-[  2.609514] CPU 01| <5> init: shutting down -> SUCCESS
+Execution: 2.458386176
+Uintrs_received: 1139376
+Uintrs_sent: 1199492
+[  2.478576] CPU 01| <5> init: shutting down -> SUCCESS

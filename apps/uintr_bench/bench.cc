@@ -147,6 +147,8 @@ void measure_uif() {
 
 int main(int argc, char *argv[]) {
   // measure_uif();
+
+  printf("double sizeof: %d\n", sizeof(double));
  
   int ret;
 

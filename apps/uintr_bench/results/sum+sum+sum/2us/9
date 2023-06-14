@@ -1,0 +1,24 @@
+tasks: sum sum sum
+interval: 2000
+CPU 127| <5> thread: created thread 0
+CPU 127| <5> cpu: detected 160 cores, 2 nodes
+[  0.001075] CPU 127| <5> loading configuration from '../../server.config'
+[  0.001109] CPU 127| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001110] CPU 127| <5> cfg: task is latency critical (LC)
+[  0.001111] CPU 127| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001112] CPU 127| <5> cfg: storage disabled, directpath disabled
+[  0.001114] CPU 127| <5> process pid: 130952
+[  0.009168] CPU 127| <5> shm: using 69206016 bytes
+[  0.009187] CPU 127| <5> net: started network stack
+[  0.009188] CPU 127| <5> net: using the following configuration:
+[  0.009189] CPU 127| <5>   addr:	192.168.1.3
+[  0.009190] CPU 127| <5>   netmask:	255.255.255.0
+[  0.009191] CPU 127| <5>   gateway:	192.168.1.1
+[  0.009191] CPU 127| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009192] CPU 127| <5>   mtu:		1500
+[  0.009438] CPU 127| <5> spawning 1 kthreads
+results: 100489436115264 100489436115264 100489436115264
+Execution: 7.091348224
+Uintrs_received: 3459633
+Uintrs_sent: 3460491
+[  7.113782] CPU 01| <5> init: shutting down -> SUCCESS

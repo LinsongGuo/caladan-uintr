@@ -2,23 +2,23 @@ tasks: linpack sum
 interval: 100000
 CPU 47| <5> thread: created thread 0
 CPU 47| <5> cpu: detected 160 cores, 2 nodes
-[  0.001050] CPU 47| <5> loading configuration from '../../server.config'
-[  0.001081] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001082] CPU 47| <5> cfg: task is latency critical (LC)
-[  0.001083] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001084] CPU 47| <5> cfg: storage disabled, directpath disabled
-[  0.001086] CPU 47| <5> process pid: 96377
-[  0.009118] CPU 47| <5> shm: using 69206016 bytes
-[  0.009138] CPU 47| <5> net: started network stack
-[  0.009138] CPU 47| <5> net: using the following configuration:
-[  0.009140] CPU 47| <5>   addr:	192.168.1.3
-[  0.009140] CPU 47| <5>   netmask:	255.255.255.0
-[  0.009141] CPU 47| <5>   gateway:	192.168.1.1
-[  0.009142] CPU 47| <5>   mac:		0E:A5:86:2D:4D:35
-[  0.009143] CPU 47| <5>   mtu:		1500
-[  0.009412] CPU 47| <5> spawning 1 kthreads
+[  0.001052] CPU 47| <5> loading configuration from '../../server.config'
+[  0.001085] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001087] CPU 47| <5> cfg: task is latency critical (LC)
+[  0.001087] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001088] CPU 47| <5> cfg: storage disabled, directpath disabled
+[  0.001091] CPU 47| <5> process pid: 128898
+[  0.009222] CPU 47| <5> shm: using 69206016 bytes
+[  0.009240] CPU 47| <5> net: started network stack
+[  0.009241] CPU 47| <5> net: using the following configuration:
+[  0.009242] CPU 47| <5>   addr:	192.168.1.3
+[  0.009243] CPU 47| <5>   netmask:	255.255.255.0
+[  0.009244] CPU 47| <5>   gateway:	192.168.1.1
+[  0.009244] CPU 47| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009246] CPU 47| <5>   mtu:		1500
+[  0.009492] CPU 47| <5> spawning 1 kthreads
 results: 20 100489436115264
-Execution: 3.566024448
-Uintrs_received: 34568
-Uintrs_sent: 35619
-[  3.586445] CPU 01| <5> init: shutting down -> SUCCESS
+Execution: 3.568407808
+Uintrs_received: 34591
+Uintrs_sent: 35643
+[  3.588887] CPU 01| <5> init: shutting down -> SUCCESS

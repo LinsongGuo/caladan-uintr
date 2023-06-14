@@ -1,0 +1,24 @@
+tasks: matmul matmul
+interval: 10000000
+CPU 127| <5> thread: created thread 0
+CPU 127| <5> cpu: detected 160 cores, 2 nodes
+[  0.001048] CPU 127| <5> loading configuration from '../../server.config'
+[  0.001079] CPU 127| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001080] CPU 127| <5> cfg: task is latency critical (LC)
+[  0.001081] CPU 127| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001082] CPU 127| <5> cfg: storage disabled, directpath disabled
+[  0.001085] CPU 127| <5> process pid: 95206
+[  0.009176] CPU 127| <5> shm: using 69206016 bytes
+[  0.009196] CPU 127| <5> net: started network stack
+[  0.009196] CPU 127| <5> net: using the following configuration:
+[  0.009198] CPU 127| <5>   addr:	192.168.1.3
+[  0.009199] CPU 127| <5>   netmask:	255.255.255.0
+[  0.009200] CPU 127| <5>   gateway:	192.168.1.1
+[  0.009200] CPU 127| <5>   mac:		0E:A5:86:2D:4D:35
+[  0.009201] CPU 127| <5>   mtu:		1500
+[  0.009478] CPU 127| <5> spawning 1 kthreads
+results: -6528753000000 -191000000
+Execution: 1.962487552
+Uintrs_received: 196
+Uintrs_sent: 196
+[  1.982103] CPU 01| <5> init: shutting down -> SUCCESS

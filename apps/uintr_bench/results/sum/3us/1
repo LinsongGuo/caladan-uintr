@@ -1,24 +1,24 @@
 tasks: sum
 interval: 3000
-CPU 128| <5> thread: created thread 0
-CPU 128| <5> cpu: detected 160 cores, 2 nodes
-[  0.001037] CPU 128| <5> loading configuration from '../../server.config'
-[  0.001068] CPU 128| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001069] CPU 128| <5> cfg: task is latency critical (LC)
-[  0.001070] CPU 128| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001071] CPU 128| <5> cfg: storage disabled, directpath disabled
-[  0.001074] CPU 128| <5> process pid: 96584
-[  0.009024] CPU 128| <5> shm: using 69206016 bytes
-[  0.009042] CPU 128| <5> net: started network stack
-[  0.009043] CPU 128| <5> net: using the following configuration:
-[  0.009044] CPU 128| <5>   addr:	192.168.1.3
-[  0.009045] CPU 128| <5>   netmask:	255.255.255.0
-[  0.009046] CPU 128| <5>   gateway:	192.168.1.1
-[  0.009046] CPU 128| <5>   mac:		0E:A5:86:2D:4D:35
-[  0.009048] CPU 128| <5>   mtu:		1500
-[  0.009292] CPU 128| <5> spawning 1 kthreads
+CPU 48| <5> thread: created thread 0
+CPU 48| <5> cpu: detected 160 cores, 2 nodes
+[  0.001067] CPU 48| <5> loading configuration from '../../server.config'
+[  0.001096] CPU 48| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001098] CPU 48| <5> cfg: task is latency critical (LC)
+[  0.001099] CPU 48| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001100] CPU 48| <5> cfg: storage disabled, directpath disabled
+[  0.001102] CPU 48| <5> process pid: 131440
+[  0.009039] CPU 48| <5> shm: using 69206016 bytes
+[  0.009058] CPU 48| <5> net: started network stack
+[  0.009059] CPU 48| <5> net: using the following configuration:
+[  0.009060] CPU 48| <5>   addr:	192.168.1.3
+[  0.009061] CPU 48| <5>   netmask:	255.255.255.0
+[  0.009062] CPU 48| <5>   gateway:	192.168.1.1
+[  0.009062] CPU 48| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009063] CPU 48| <5>   mtu:		1500
+[  0.009307] CPU 48| <5> spawning 1 kthreads
 results: 100489436115264
-Execution: 2.037295616
-Uintrs_received: 662846
-Uintrs_sent: 663028
-[  2.056760] CPU 01| <5> init: shutting down -> SUCCESS
+Execution: 2.032064000
+Uintrs_received: 661173
+Uintrs_sent: 661350
+[  2.051491] CPU 01| <5> init: shutting down -> SUCCESS

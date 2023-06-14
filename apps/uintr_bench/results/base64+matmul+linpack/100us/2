@@ -1,24 +1,24 @@
 tasks: base64 matmul linpack
 interval: 100000
-CPU 126| <5> thread: created thread 0
-CPU 126| <5> cpu: detected 160 cores, 2 nodes
-[  0.001105] CPU 126| <5> loading configuration from '../../server.config'
-[  0.001137] CPU 126| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001139] CPU 126| <5> cfg: task is latency critical (LC)
-[  0.001139] CPU 126| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001140] CPU 126| <5> cfg: storage disabled, directpath disabled
-[  0.001143] CPU 126| <5> process pid: 120325
-[  0.009242] CPU 126| <5> shm: using 69206016 bytes
-[  0.009266] CPU 126| <5> net: started network stack
-[  0.009266] CPU 126| <5> net: using the following configuration:
-[  0.009268] CPU 126| <5>   addr:	192.168.1.3
-[  0.009268] CPU 126| <5>   netmask:	255.255.255.0
-[  0.009269] CPU 126| <5>   gateway:	192.168.1.1
-[  0.009270] CPU 126| <5>   mac:		46:EE:20:DA:06:41
-[  0.009271] CPU 126| <5>   mtu:		1500
-[  0.009503] CPU 126| <5> spawning 1 kthreads
+CPU 47| <5> thread: created thread 0
+CPU 47| <5> cpu: detected 160 cores, 2 nodes
+[  0.001091] CPU 47| <5> loading configuration from '../../server.config'
+[  0.001125] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001126] CPU 47| <5> cfg: task is latency critical (LC)
+[  0.001126] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001128] CPU 47| <5> cfg: storage disabled, directpath disabled
+[  0.001131] CPU 47| <5> process pid: 132996
+[  0.009741] CPU 47| <5> shm: using 69206016 bytes
+[  0.009759] CPU 47| <5> net: started network stack
+[  0.009760] CPU 47| <5> net: using the following configuration:
+[  0.009761] CPU 47| <5>   addr:	192.168.1.3
+[  0.009762] CPU 47| <5>   netmask:	255.255.255.0
+[  0.009763] CPU 47| <5>   gateway:	192.168.1.1
+[  0.009763] CPU 47| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009764] CPU 47| <5>   mtu:		1500
+[  0.010008] CPU 47| <5> spawning 1 kthreads
 results: 2333333600 -191000000 -9223372036854775808
-Execution: 4.710595584
-Uintrs_received: 45817
-Uintrs_sent: 47041
-[  4.729488] CPU 01| <5> init: shutting down -> SUCCESS
+Execution: 4.705653760
+Uintrs_received: 45770
+Uintrs_sent: 46993
+[  4.727414] CPU 01| <5> init: shutting down -> SUCCESS

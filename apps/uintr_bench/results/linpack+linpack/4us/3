@@ -1,22 +1,22 @@
 tasks: linpack linpack
 interval: 4000
-CPU 126| <5> thread: created thread 0
-CPU 126| <5> cpu: detected 160 cores, 2 nodes
-[  0.001597] CPU 126| <5> loading configuration from '../../server.config'
-[  0.001631] CPU 126| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001633] CPU 126| <5> cfg: task is latency critical (LC)
-[  0.001634] CPU 126| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001635] CPU 126| <5> cfg: storage disabled, directpath disabled
-[  0.001637] CPU 126| <5> process pid: 120235
-[  0.012114] CPU 126| <5> shm: using 69206016 bytes
-[  0.012135] CPU 126| <5> net: started network stack
-[  0.012136] CPU 126| <5> net: using the following configuration:
-[  0.012137] CPU 126| <5>   addr:	192.168.1.3
-[  0.012138] CPU 126| <5>   netmask:	255.255.255.0
-[  0.012139] CPU 126| <5>   gateway:	192.168.1.1
-[  0.012139] CPU 126| <5>   mac:		46:EE:20:DA:06:41
-[  0.012140] CPU 126| <5>   mtu:		1500
-[  0.012391] CPU 126| <5> spawning 1 kthreads
+CPU 127| <5> thread: created thread 0
+CPU 127| <5> cpu: detected 160 cores, 2 nodes
+[  0.001065] CPU 127| <5> loading configuration from '../../server.config'
+[  0.001096] CPU 127| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001097] CPU 127| <5> cfg: task is latency critical (LC)
+[  0.001098] CPU 127| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001099] CPU 127| <5> cfg: storage disabled, directpath disabled
+[  0.001102] CPU 127| <5> process pid: 128368
+[  0.009216] CPU 127| <5> shm: using 69206016 bytes
+[  0.009235] CPU 127| <5> net: started network stack
+[  0.009236] CPU 127| <5> net: using the following configuration:
+[  0.009237] CPU 127| <5>   addr:	192.168.1.3
+[  0.009238] CPU 127| <5>   netmask:	255.255.255.0
+[  0.009239] CPU 127| <5>   gateway:	192.168.1.1
+[  0.009240] CPU 127| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009241] CPU 127| <5>   mtu:		1500
+[  0.009494] CPU 127| <5> spawning 1 kthreads
 
 LINPACK_BENCH - Fatal error!
   The matrix A is apparently singular.

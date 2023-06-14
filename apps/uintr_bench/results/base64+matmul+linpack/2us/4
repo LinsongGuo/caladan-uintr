@@ -1,24 +1,24 @@
 tasks: base64 matmul linpack
 interval: 2000
-CPU 46| <5> thread: created thread 0
-CPU 46| <5> cpu: detected 160 cores, 2 nodes
-[  0.001119] CPU 126| <5> loading configuration from '../../server.config'
-[  0.001158] CPU 126| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001160] CPU 126| <5> cfg: task is latency critical (LC)
-[  0.001160] CPU 126| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001161] CPU 126| <5> cfg: storage disabled, directpath disabled
-[  0.001165] CPU 126| <5> process pid: 120409
-[  0.009178] CPU 126| <5> shm: using 69206016 bytes
-[  0.009198] CPU 126| <5> net: started network stack
-[  0.009198] CPU 126| <5> net: using the following configuration:
-[  0.009199] CPU 126| <5>   addr:	192.168.1.3
-[  0.009200] CPU 126| <5>   netmask:	255.255.255.0
-[  0.009201] CPU 126| <5>   gateway:	192.168.1.1
-[  0.009202] CPU 126| <5>   mac:		46:EE:20:DA:06:41
-[  0.009203] CPU 126| <5>   mtu:		1500
-[  0.009462] CPU 126| <5> spawning 1 kthreads
-results: 2333333600 -9223372036854775808 -9223372036854775808
-Execution: 6.719874048
-Uintrs_received: 3207669
-Uintrs_sent: 3278434
-[  6.738875] CPU 01| <5> init: shutting down -> SUCCESS
+CPU 127| <5> thread: created thread 0
+CPU 127| <5> cpu: detected 160 cores, 2 nodes
+[  0.001050] CPU 127| <5> loading configuration from '../../server.config'
+[  0.001080] CPU 127| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001082] CPU 127| <5> cfg: task is latency critical (LC)
+[  0.001082] CPU 127| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001083] CPU 127| <5> cfg: storage disabled, directpath disabled
+[  0.001086] CPU 127| <5> process pid: 133158
+[  0.009225] CPU 127| <5> shm: using 69206016 bytes
+[  0.009243] CPU 127| <5> net: started network stack
+[  0.009244] CPU 127| <5> net: using the following configuration:
+[  0.009245] CPU 127| <5>   addr:	192.168.1.3
+[  0.009246] CPU 127| <5>   netmask:	255.255.255.0
+[  0.009247] CPU 127| <5>   gateway:	192.168.1.1
+[  0.009247] CPU 127| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009248] CPU 127| <5>   mtu:		1500
+[  0.009489] CPU 127| <5> spawning 1 kthreads
+results: 2333333600 -191000000 -9223372036854775808
+Execution: 6.623206144
+Uintrs_received: 3161236
+Uintrs_sent: 3231335
+[  6.645573] CPU 01| <5> init: shutting down -> SUCCESS

@@ -1,24 +1,24 @@
-tasks: matmul base64
+tasks: base64 matmul
 interval: 10000000
-CPU 47| <5> thread: created thread 0
-CPU 47| <5> cpu: detected 160 cores, 2 nodes
-[  0.001046] CPU 47| <5> loading configuration from '../../server.config'
-[  0.001077] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001079] CPU 47| <5> cfg: task is latency critical (LC)
-[  0.001079] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001080] CPU 47| <5> cfg: storage disabled, directpath disabled
-[  0.001083] CPU 47| <5> process pid: 94761
-[  0.009130] CPU 47| <5> shm: using 69206016 bytes
-[  0.009148] CPU 47| <5> net: started network stack
-[  0.009149] CPU 47| <5> net: using the following configuration:
-[  0.009150] CPU 47| <5>   addr:	192.168.1.3
-[  0.009151] CPU 47| <5>   netmask:	255.255.255.0
-[  0.009152] CPU 47| <5>   gateway:	192.168.1.1
-[  0.009152] CPU 47| <5>   mac:		0E:A5:86:2D:4D:35
-[  0.009153] CPU 47| <5>   mtu:		1500
-[  0.009414] CPU 47| <5> spawning 1 kthreads
-results: -191000000 2333333600
-Execution: 2.772317696
+CPU 50| <5> thread: created thread 0
+CPU 50| <5> cpu: detected 160 cores, 2 nodes
+[  0.001107] CPU 50| <5> loading configuration from '../../server.config'
+[  0.001138] CPU 50| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001139] CPU 50| <5> cfg: task is latency critical (LC)
+[  0.001140] CPU 50| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001141] CPU 50| <5> cfg: storage disabled, directpath disabled
+[  0.001144] CPU 50| <5> process pid: 127094
+[  0.009161] CPU 50| <5> shm: using 69206016 bytes
+[  0.009180] CPU 50| <5> net: started network stack
+[  0.009181] CPU 50| <5> net: using the following configuration:
+[  0.009182] CPU 50| <5>   addr:	192.168.1.3
+[  0.009183] CPU 50| <5>   netmask:	255.255.255.0
+[  0.009184] CPU 50| <5>   gateway:	192.168.1.1
+[  0.009184] CPU 50| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009185] CPU 50| <5>   mtu:		1500
+[  0.009431] CPU 50| <5> spawning 1 kthreads
+results: 2333333600 -191000000
+Execution: 2.772892672
 Uintrs_received: 277
 Uintrs_sent: 277
-[  2.792274] CPU 01| <5> init: shutting down -> SUCCESS
+[  2.792916] CPU 01| <5> init: shutting down -> SUCCESS

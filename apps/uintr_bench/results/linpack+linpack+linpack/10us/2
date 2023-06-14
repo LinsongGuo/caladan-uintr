@@ -2,23 +2,22 @@ tasks: linpack linpack linpack
 interval: 10000
 CPU 47| <5> thread: created thread 0
 CPU 47| <5> cpu: detected 160 cores, 2 nodes
-[  0.001181] CPU 47| <5> loading configuration from '../../server.config'
-[  0.001211] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001212] CPU 47| <5> cfg: task is latency critical (LC)
-[  0.001213] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001214] CPU 47| <5> cfg: storage disabled, directpath disabled
-[  0.001216] CPU 47| <5> process pid: 95974
-[  0.009318] CPU 47| <5> shm: using 69206016 bytes
-[  0.009337] CPU 47| <5> net: started network stack
-[  0.009337] CPU 47| <5> net: using the following configuration:
-[  0.009339] CPU 47| <5>   addr:	192.168.1.3
-[  0.009340] CPU 47| <5>   netmask:	255.255.255.0
-[  0.009340] CPU 47| <5>   gateway:	192.168.1.1
-[  0.009341] CPU 47| <5>   mac:		0E:A5:86:2D:4D:35
-[  0.009342] CPU 47| <5>   mtu:		1500
-[  0.009580] CPU 47| <5> spawning 1 kthreads
-results: -9223372036854775808 -9223372036854775808 -9223372036854775808
-Execution: 6.436668160
-Uintrs_received: 595408
-Uintrs_sent: 628271
-[  6.459009] CPU 01| <5> init: shutting down -> SUCCESS
+[  0.001200] CPU 47| <5> loading configuration from '../../server.config'
+[  0.001230] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001231] CPU 47| <5> cfg: task is latency critical (LC)
+[  0.001232] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001233] CPU 47| <5> cfg: storage disabled, directpath disabled
+[  0.001236] CPU 47| <5> process pid: 128042
+[  0.009285] CPU 47| <5> shm: using 69206016 bytes
+[  0.009303] CPU 47| <5> net: started network stack
+[  0.009304] CPU 47| <5> net: using the following configuration:
+[  0.009305] CPU 47| <5>   addr:	192.168.1.3
+[  0.009306] CPU 47| <5>   netmask:	255.255.255.0
+[  0.009307] CPU 47| <5>   gateway:	192.168.1.1
+[  0.009307] CPU 47| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009308] CPU 47| <5>   mtu:		1500
+[  0.009592] CPU 47| <5> spawning 1 kthreads
+
+LINPACK_BENCH - Fatal error!
+  The matrix A is apparently singular.
+  Abnormal end of execution.

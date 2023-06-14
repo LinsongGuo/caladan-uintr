@@ -1,22 +1,22 @@
 tasks: linpack linpack linpack
 interval: 10000
-CPU 127| <5> thread: created thread 0
-CPU 127| <5> cpu: detected 160 cores, 2 nodes
-[  0.001042] CPU 127| <5> loading configuration from '../../server.config'
-[  0.001076] CPU 127| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
-[  0.001077] CPU 127| <5> cfg: task is latency critical (LC)
-[  0.001078] CPU 127| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
-[  0.001079] CPU 127| <5> cfg: storage disabled, directpath disabled
-[  0.001082] CPU 127| <5> process pid: 95980
-[  0.009187] CPU 127| <5> shm: using 69206016 bytes
-[  0.009206] CPU 127| <5> net: started network stack
-[  0.009206] CPU 127| <5> net: using the following configuration:
-[  0.009207] CPU 127| <5>   addr:	192.168.1.3
-[  0.009208] CPU 127| <5>   netmask:	255.255.255.0
-[  0.009209] CPU 127| <5>   gateway:	192.168.1.1
-[  0.009210] CPU 127| <5>   mac:		0E:A5:86:2D:4D:35
-[  0.009211] CPU 127| <5>   mtu:		1500
-[  0.009456] CPU 127| <5> spawning 1 kthreads
+CPU 47| <5> thread: created thread 0
+CPU 47| <5> cpu: detected 160 cores, 2 nodes
+[  0.001053] CPU 47| <5> loading configuration from '../../server.config'
+[  0.001085] CPU 47| <5> cfg: provisioned 1 cores (1 guaranteed, 0 burstable, 0 spinning)
+[  0.001086] CPU 47| <5> cfg: task is latency critical (LC)
+[  0.001087] CPU 47| <5> cfg: THRESH_QD: 10, THRESH_HT: 0 THRESH_QUANTUM: 100
+[  0.001088] CPU 47| <5> cfg: storage disabled, directpath disabled
+[  0.001090] CPU 47| <5> process pid: 128048
+[  0.009163] CPU 47| <5> shm: using 69206016 bytes
+[  0.009183] CPU 47| <5> net: started network stack
+[  0.009184] CPU 47| <5> net: using the following configuration:
+[  0.009185] CPU 47| <5>   addr:	192.168.1.3
+[  0.009186] CPU 47| <5>   netmask:	255.255.255.0
+[  0.009187] CPU 47| <5>   gateway:	192.168.1.1
+[  0.009187] CPU 47| <5>   mac:		36:7C:4C:45:B1:72
+[  0.009188] CPU 47| <5>   mtu:		1500
+[  0.009440] CPU 47| <5> spawning 1 kthreads
 
 LINPACK_BENCH - Fatal error!
   The matrix A is apparently singular.
